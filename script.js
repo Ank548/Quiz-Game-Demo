@@ -5,7 +5,7 @@ let questions_array = [
         "Option2": "Constitutional Monarchy",
         "Option3": "Parliamentary Democracy",
         "Option4": "Absolute Monarchy",
-        "Correct": "Absolute Monarchy"
+        "Correct": "Option4"
     },
     {
         "ques": "2) Which actor played the role of Frank Booth in Blue Velvet?",
@@ -13,15 +13,15 @@ let questions_array = [
         "Option2": "Dennis Hopper",
         "Option3": "Kevin Spacey",
         "Option4": "James Stewart",
-        "Correct": "Dennis Hopper"
+        "Correct": "Option2"
     },
     {
         "ques": "3) In which of Shakespeare's plays does the character 'Prospero' appear?",
-        "Option1": "Othello",
+        "Option1": "Manson",
         "Option2": "A Midsummer Night's Dream",
         "Option3": "The Tempest",
         "Option4": "Othello",
-        "Correct": "The Tempest"
+        "Correct": "Option3"
     },
     {
         "ques": "4) Which band includes 'Nico'?",
@@ -29,7 +29,7 @@ let questions_array = [
         "Option2": "Marilyn Manson",
         "Option3": "Alice in Chains",
         "Option4": "Fall Out Boy",
-        "Correct": "The Velvet Underground"
+        "Correct": "Option1"
     },
     {
         "ques": "5) The Term 'Dutch Courage' Originally Came From The Consumption Of Which Drinkt?",
@@ -37,7 +37,7 @@ let questions_array = [
         "Option2": "Vodka",
         "Option3": "Gin",
         "Option4": "Avocaat",
-        "Correct": "Gin"
+        "Correct": "Option3"
     },
     {
         "ques": `<div style="text-align: center;">Do you want to Submit?</div>`
@@ -67,6 +67,7 @@ function loadquestion() {
         attempted()
         let final = confirm(`Do you really want to Submit?\nYou attemted ${attempt.length} out of ${total-1}`)
         if(final){
+            Correct()
             return quizend()
         }
         else{
@@ -165,9 +166,19 @@ function check(){
         }
         
 }
+
 function attempted(){
      attempt = ans_array.filter((elm)=>{
         return (elm != null && elm !== false && elm !== "")
     })
+}
+
+function Correct(){
+  for(let i = 0;i<ans_array.length;i++){
+    data=questions_array[i]
+    if(ans_array[i]==data['Correct']){
+        right++
+    }
+  }
 }
 
