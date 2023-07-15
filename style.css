@@ -43,18 +43,24 @@
 
 .btn{
     margin-top: 50px;
+    width: 100%;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub{
+    width: 50%;
 }
 
 .submit{
-    width: 80%;
+    width: 100%;
     padding: 6px;
     background-color: rgb(16, 129, 209);
     border-radius: 10px;
     color: white;
     font-size: 1.3rem;
     border: none;
-    margin: 0 15px;
 }
 
 .backbtn,.forwardbtn{
